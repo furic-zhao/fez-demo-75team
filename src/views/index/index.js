@@ -1,11 +1,11 @@
 $.fn.parallaxSlider = function(options) {
-    var opts = $.extend({}, $.fn.parallaxSlider.defaults, options);
+    let opts = $.extend({}, $.fn.parallaxSlider.defaults, options);
     return this.each(function() {
-        var $pxs_container = $(this),
+        let $pxs_container = $(this),
             o = $.meta ? $.extend({}, opts, $pxs_container.data()) : opts;
 
         //幻灯对象
-        var $pxs_slider = $('.pxs_slider', $pxs_container),
+        let $pxs_slider = $('.pxs_slider', $pxs_container),
             //内部对象
             $elems = $pxs_slider.children(),
             //幻灯总数
@@ -30,11 +30,11 @@ $.fn.parallaxSlider = function(options) {
             $pxs_slider_wrapper = $('.pxs_slider_wrapper', $pxs_container);
 
         //预加载所有图像
-        var loaded = 0,
-            $images = $pxs_slider_wrapper.find('img');
+        let loaded = 0
+        const $images = $pxs_slider_wrapper.find('img')
 
         $images.each(function() {
-            var $img = $(this);
+            const $img = $(this);
             $('<img/>').load(function() {
                 ++loaded;
                 if (loaded == total_elems * 2) {
@@ -42,7 +42,7 @@ $.fn.parallaxSlider = function(options) {
                     $pxs_slider_wrapper.show();
 
                     //图像宽度(所有图像宽度相同)
-                    var one_image_w = $pxs_slider.find('img:first').width();
+                    const one_image_w = $pxs_slider.find('img:first').width();
 
                     /*设置宽度*/
                     setWidths($pxs_slider,
@@ -60,14 +60,14 @@ $.fn.parallaxSlider = function(options) {
                         'width': one_image_w + 'px',
                         'margin-left': -one_image_w / 2 + 'px'
                     });
-                    var spaces = one_image_w / (total_elems + 1);
+                    let spaces = one_image_w / (total_elems + 1);
                     $thumbs.each(function(i) {
-                        var $this = $(this);
-                        var left = spaces * (i + 1) - $this.width() / 2;
+                        const $this = $(this);
+                        let left = spaces * (i + 1) - $this.width() / 2;
                         $this.css('left', left + 'px');
 
                         if (o.thumbRotation) {
-                            var angle = Math.floor(Math.random() * 41) - 20;
+                            let angle = Math.floor(Math.random() * 41) - 20;
                             $this.css({
                                 '-moz-transform': 'rotate(' + angle + 'deg)',
                                 '-webkit-transform': 'rotate(' + angle + 'deg)',
@@ -131,7 +131,7 @@ $.fn.parallaxSlider = function(options) {
 
                     /*滑动到对应的图像 */
                     $thumbs.bind('click', function() {
-                        var $thumb = $(this);
+                        const $thumb = $(this);
                         highlight($thumb);
                         //用户点击时中断自动播放
                         if (o.auto)
@@ -180,9 +180,9 @@ $.fn.parallaxSlider = function(options) {
 };
 
 //当前窗口的宽度
-var w_w = $(window).width();
+let w_w = $(window).width();
 
-var slide = function(current,
+let slide = function(current,
     $pxs_slider,
     $pxs_bg3,
     $pxs_bg2,
@@ -190,7 +190,7 @@ var slide = function(current,
     speed,
     easing,
     easingBg) {
-    var slide_to = parseInt(-w_w * current);
+    let slide_to = parseInt(-w_w * current);
     $pxs_slider.stop().animate({
         left: slide_to + 'px'
     }, speed, easing);
@@ -205,12 +205,12 @@ var slide = function(current,
     }, speed, easingBg);
 }
 
-var highlight = function($elem) {
+let highlight = function($elem) {
     $elem.siblings().removeClass('selected');
     $elem.addClass('selected');
 }
 
-var setWidths = function($pxs_slider,
+let setWidths = function($pxs_slider,
     $elems,
     total_elems,
     $pxs_bg1,
@@ -222,7 +222,7 @@ var setWidths = function($pxs_slider,
     /*
     计算滑块的总宽度
      */
-    var pxs_slider_w = w_w * total_elems;
+    let pxs_slider_w = w_w * total_elems;
     $pxs_slider.width(pxs_slider_w + 'px');
 
     $elems.width(w_w + 'px');
@@ -231,7 +231,7 @@ var setWidths = function($pxs_slider,
     $pxs_bg2.width(pxs_slider_w + 'px');
     $pxs_bg3.width(pxs_slider_w + 'px');
 
-    var position_nav = w_w / 2 - one_image_w / 2 + 3;
+    let position_nav = w_w / 2 - one_image_w / 2 + 3;
     $pxs_next.css('right', position_nav + 'px');
     $pxs_prev.css('left', position_nav + 'px');
 }
@@ -247,7 +247,7 @@ $.fn.parallaxSlider.defaults = {
 //easeInOutExpo,easeInBack
 
 
-var $pxs_container = $('#pxs_container');
+const $pxs_container = $('#pxs_container');
 $pxs_container.parallaxSlider();
 /*其他工具按钮动画特效*/
 $(".other-tool li").hover(function() {
@@ -260,7 +260,7 @@ $(".other-tool li").hover(function() {
 });
 /*随机表情*/
 function randomFace() {
-    var random = Math.ceil(Math.random() * 24);
+    let random = Math.ceil(Math.random() * 24);
     if (random < 10) random = "0" + random;
     return "0" + random;
 }

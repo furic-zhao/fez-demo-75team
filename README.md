@@ -4,18 +4,37 @@
 
 > 本示例演示了基于FEZ构建简单官方网站，页面逻辑较简单，不再划分模块结构。
 
-## 使用示例
+**下载示例**
 
-- 下载到FEZ工程目录
-
-- 进入项目目录执行命令
-
-**进入研发环境**
+- 将本示例下载到FEZ工程目录
 
 ```
+cd fez工程目录
+
+git clone https://github.com/furic-zhao/fez-demo-75team.git
+
+fez
+├── .babelrc
+├── .editorconfig
+├── .fez
+├── .gitignore
+├── README.md
+├── fez.config.sample.js
+├── gulpfile.babel.js
+├── package.json
+└── fez-demo-75team (项目目录)
+```
+
+**运行示例**
+
+```
+cd fez-demo-75team
+
 gulp
 ```
 
-更多命令请访问：[https://github.com/furic-zhao/fez](https://github.com/furic-zhao/fez)
+**查看示例**
+
+[fez-demo-75team](http://fez.hestudy.com/fez-demo-75team/)
 
 

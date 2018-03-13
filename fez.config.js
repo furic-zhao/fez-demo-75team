@@ -7,10 +7,12 @@ export default {
 
   useInject: {
     common: {
-
       js: [{
         target: "a-common-jquery.js",
-        contain: ["**/*jquery.js", "**/*jquery.fancybox-1.3.4.pack.js", "**/*jquery.easing-1.3.pack.js", "**/*jquery.mousewheel-3.0.4.pack.js"]
+        contain: ["**/*jquery.js"]
+      }, {
+        target: "b-common-jquery-plugin.js",
+        contain: ["**/*fancybox-1.3.4.pack.js", "**/*easing-1.3.pack.js", "**/*mousewheel-3.0.4.pack.js"]
       }]
     }
   }

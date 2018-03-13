@@ -253,16 +253,43 @@ $pxs_container.parallaxSlider();
 $(".other-tool li").hover(function() {
     $(this).find("a").addClass("lightSpeedIn current").end().find(".ico").addClass("bounceInDown").css({
         "display": "block",
-        "background-image": "url(static/images/face/" + randomFace() + ".gif)"
+        "background-image": "url(" + randomFace() + ")"
     });
 }, function() {
     $(this).find("a").removeClass("lightSpeedIn current").end().find(".ico").removeClass("bounceInDown").css("display", "none");
 });
+
+const faceList = [
+'static/images/face/001.gif',
+'static/images/face/002.gif',
+'static/images/face/003.gif',
+'static/images/face/004.gif',
+'static/images/face/005.gif',
+'static/images/face/006.gif',
+'static/images/face/007.gif',
+'static/images/face/008.gif',
+'static/images/face/009.gif',
+'static/images/face/010.gif',
+'static/images/face/011.gif',
+'static/images/face/012.gif',
+'static/images/face/013.gif',
+'static/images/face/014.gif',
+'static/images/face/015.gif',
+'static/images/face/016.gif',
+'static/images/face/017.gif',
+'static/images/face/018.gif',
+'static/images/face/019.gif',
+'static/images/face/020.gif',
+'static/images/face/021.gif',
+'static/images/face/022.gif',
+'static/images/face/023.gif',
+'static/images/face/024.gif'
+];
 /*随机表情*/
 function randomFace() {
     let random = Math.ceil(Math.random() * 24);
-    if (random < 10) random = "0" + random;
-    return "0" + random;
+    // if (random < 10) random = "0" + random;
+    return faceList[random];
 }
 /*lightbox*/
 $(".other-tool a,.pxs_slider_wrapper .content a").fancybox({
